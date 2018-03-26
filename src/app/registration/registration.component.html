@@ -1,0 +1,117 @@
+<!--<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-0">
+        <div class="form-group">
+          <br>
+          <label>First Name</label>
+          <input name="fname" class="form-control" [(ngModel)]="user.fname" type="text" autofocus placeholder="Enter First Name" required>
+
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input name="lname" class="form-control" [(ngModel)]="user.lname" type="text" placeholder="Enter Last Name" required>
+
+        </div>
+        <div class="form-group">
+          <label>Mobile No</label>
+          <input name="mno" class="form-control" [(ngModel)]="user.mno" type="number" 
+           placeholder="Enter Mobile No" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input name="email" class="form-control" [(ngModel)]="user.email" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            autofocus placeholder="Enter email" required>
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Password</label>
+          <input name="password" class="form-control" [(ngModel)]="user.password" type="password" placeholder="Enter password" required
+            maxlength="13" minlength="5">
+
+
+
+        </div>
+        <div class="form-group">
+          <label> Confirm Password</label>
+          <input name=" cpass" class="form-control" [(ngModel)]="user.cpass" type="password" placeholder="Enter password" required
+            maxlength="13" minlength="5">
+        </div>
+
+
+
+
+        <div class="form-group">
+
+        
+            <button   type="submit" class="btn btn-primary" value="" (click)="register()" mdbRippleRadius>Submit</button>
+            <input type="reset" class="btn btn-primary" value="reset">
+        </div>
+
+
+
+      </div>
+    </div>
+  </form>
+</div>-->
+
+ 
+  <div >
+      <div class="col-sm-6 col-sm-offset-2">
+          <h2>Registration page</h2>
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !fname.valid }">
+          <label for="fname">First Name</label>
+          <input type="text" placeholder="Enter First Name" class="form-control" minlength="3" name="fname" [(ngModel)]="user.fname" #fname="ngModel" required />
+          <div *ngIf="f.submitted && !fname.valid" class="help-block">First Name is required and  should be  3 characters</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lname.valid }">
+          <label for="lname">Last Name</label>
+          <input type="text" placeholder="Enter Last Name" class="form-control" minlength="3" name="lname" [(ngModel)]="user.lname" #lname="ngModel" required />
+          <div *ngIf="f.submitted && !lname.valid" class="help-block">Last Name is required and  should be  3 characters</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mno.valid }">
+          <label for="lname">Mobile No</label>
+          <input type="text" placeholder="Enter Mobile No " class="form-control" name="mno" [(ngModel)]="user.mno" #mno="ngModel" pattern="^[7-9][0-9]{9}$" minlength="10" maxlength="10" required />
+          <div *ngIf="f.submitted && !mno.valid" class="help-block">Mobile No should be  10 characters</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+          <label for="email">Email</label>
+          <input type="text" placeholder="Enter Email" class="form-control" name="email" [(ngModel)]="user.email" #email="ngModel" required />
+          <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <label for="password">Password</label>
+          <input type="password" placeholder="Enter Password" class="form-control"   name="password" [(ngModel)]="user.password" #password="ngModel" minlength="6" maxlength="10" required />
+          <div *ngIf="f.submitted && !password.valid" class="help-block">password must be entered</div>
+          <div *ngIf="password.errors && password.touched">
+            <span class="help-block" *ngIf="password.errors.required"> password must be entered.</span>
+            <span class="help-block" *ngIf="password.errors.minlength"> password must be greater than 6.</span>
+            <span class="help-block" *ngIf="password.errors.maxlength">password must be less than 10</span>
+        </div>
+        </div>
+    
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !cpass.valid }">
+          <label for="cpass"> Confirm Password</label>
+          <input type="password"  placeholder="Confirm Password" class="form-control" name="cpass" [(ngModel)]="user.cpass" #cpass="ngModel" required />
+          <div *ngIf="f.submitted && !cpass.valid" class="help-block">password should be 6 to 10 characters</div>
+        </div>
+       
+        <div class="form-group">
+          <button [disabled]=""  class="btn btn-primary">Register</button>
+        
+          
+            <button class="btn btn-primary" type="reset">Cancel</button>
+          
+        </div>
+      </form>
+</div>
+  </div>
+
+
+
+
+
+

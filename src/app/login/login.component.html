@@ -1,0 +1,79 @@
+  <!--
+
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="form.form.valid && submitForm()">
+      <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+              <div class="form-group">
+                  <label>Email</label>
+                  <input #emial="ngModel" type="email" name="email" class="form-control" [(ngModel)]="user.email" require >
+                  <div *ngIf="email.errors && email.touched">
+                    <span class="help-block" *ngIf="email.errors.required">Dish name should be entered.</span>                  </div>
+              </div>
+              <div class="form-group">
+                  <label>Password</label>
+                  <input #password="ngModel" name="password" class="form-control" type="password" [(ngModel)]="user.password" required minlength="6"maxlength="8">
+                  
+                  <div *ngIf="password.errors && password.touched">
+                      <span class="help-block" *ngIf="password.errors.required">Dish password must be entered.</span>
+                      <span class="help-block" *ngIf="password.errors.minlength"> password must be greater than 6.</span>
+                      <span class="help-block" *ngIf="password.errors.maxlength">password must be less than 8.</span>
+                  </div>
+              </div>
+              
+              
+              
+              
+              <button   type="submit" class="btn btn-primary" value="" mdbRippleRadius>Submit</button>
+          </div>
+      </div>
+  </form>
+</div>-->
+<div >
+    <div class="col-sm-6 col-sm-offset-2">
+        <h2>Login Page </h2>
+  <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="user.email" #email="ngModel" required />
+        <div *ngIf="f.submitted && !email.valid" class="help-block"> emial must be entered</div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" placeholder="Enter Password" name="password" [(ngModel)]="user.password" #password="ngModel" minlength="6" maxlength="10" required />
+        <div *ngIf="f.submitted && !password.valid" class="help-block"> password must be entered</div>
+      <div *ngIf="password.errors && password.touched">
+                      <span class="help-block" *ngIf="password.errors.required"> password must be entered.</span>
+                      <span class="help-block" *ngIf="password.errors.minlength"> password must be greater than 6.</span>
+                      <span class="help-block" *ngIf="password.errors.maxlength">password must be less than 8.</span>
+                  </div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !otp.valid }">
+        <label for="otp">OTP</label>
+        <input type="text" class="form-control" placeholder="Enter OTP" name="otp" [(ngModel)]="user.otp" #otp="ngModel" minlength="6" maxlength="6" required />
+        <div *ngIf="f.submitted && !otp.valid" class="help-block"> otp must be entered</div>
+      <div *ngIf="otp.errors && otp.touched">
+                      <span class="help-block" *ngIf="otp.errors.required"> otp must be entered.</span>
+                  </div>
+    </div>
+  
+     
+      <div class="form-group">
+        <button  class="btn btn-primary">Login</button>
+        <!--
+                <button class="btn btn-primary" [disabled]="f.form.invalid">Submit</button>
+                -->
+        
+      
+      
+          <button class="btn btn-primary"type="reset">Cancel</button> 
+          <br>
+      
+           <a routerLink="/registration" routerLinkActive="active"  > don't have an account register</a> 
+      
+    </div>
+    </form>
+</div>
+</div>
+

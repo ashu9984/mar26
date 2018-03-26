@@ -1,0 +1,40 @@
+<div class="col-md-6 col-md-offset-3">
+    
+    
+        
+        
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+    
+                <th>Mobile No</th>
+                <th>Email</th>
+    
+    
+            </tr>
+        </thead>
+    
+    
+        <tr *ngFor="let item of result" >
+            <td>{{item.fname}} {{item.lname}}</td>
+            <td>{{item.mno}}</td>
+            <td>{{item.email}}</td>
+    
+    
+    
+    
+        </tr>
+        </tbody>
+    
+    </table>
+        
+        <p><a [routerLink]="['/login']">Logout</a></p>
+    </div>
+
+
+
+
+      
+    
+    

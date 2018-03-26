@@ -1,0 +1,99 @@
+<!--<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-0">
+        <div class="form-group">
+          <br>
+          <label>First Name</label>
+          <input name="fname" class="form-control" [(ngModel)]="user.fname" type="text" autofocus placeholder="Enter First Name" required>
+
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input name="lname" class="form-control" [(ngModel)]="user.lname" type="text" placeholder="Enter Last Name" required>
+
+        </div>
+        <div class="form-group">
+          <label>Mobile No</label>
+          <input name="mno" class="form-control" [(ngModel)]="user.mno" type="number" 
+           placeholder="Enter Mobile No" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input name="email" class="form-control" [(ngModel)]="user.email" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            autofocus placeholder="Enter email" required>
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Password</label>
+          <input name="password" class="form-control" [(ngModel)]="user.password" type="password" placeholder="Enter password" required
+            maxlength="13" minlength="5">
+
+
+
+        </div>
+        <div class="form-group">
+          <label> Confirm Password</label>
+          <input name=" cpass" class="form-control" [(ngModel)]="user.cpass" type="password" placeholder="Enter password" required
+            maxlength="13" minlength="5">
+        </div>
+
+
+
+
+        <div class="form-group">
+
+        
+            <button   type="submit" class="btn btn-primary" value="" (click)="register()" mdbRippleRadius>Submit</button>
+            <input type="reset" class="btn btn-primary" value="reset">
+        </div>
+
+
+
+      </div>
+    </div>
+  </form>
+</div>
+-->
+
+
+<div>
+  <div class="col-sm-6 col-sm-offset-2">
+    <h2>Product page</h2>
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !proname.valid }">
+        <label for="proname">Product Name</label>
+        <input type="text" placeholder="Enter Product Name" class="form-control" minlength="3" name="proname" [(ngModel)]="product.proname"
+          #proname="ngModel" required />
+        <div *ngIf="f.submitted && !proname.valid" class="help-block">Product Name is required and should be 3 characters</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !protype.valid }">
+        <label for="protype">Product Type </label>
+        <input type="text" placeholder="Enter Product Type" class="form-control" minlength="3" name="protype" [(ngModel)]="product.protype"
+          #protype="ngModel" required />
+        <div *ngIf="f.submitted && !protype.valid" class="help-block">Product Type is required</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !proimage.valid }">
+        <label for="proimage">Product Image </label>
+        <input type="text" placeholder="Enter Product Image" class="form-control" name="proimage" [(ngModel)]="product.proimage"
+          #proimage="ngModel" required />
+      </div>
+      
+      
+    
+
+      <div class="form-group">
+        <button [disabled]="" class="btn btn-primary">Save</button>
+
+        <a [routerLink]="['/login']" class="btn btn-link">
+          <button class="btn btn-primary">Cancel</button>
+        </a>
+
+      </div>
+    </form>
+  </div>
+</div>
