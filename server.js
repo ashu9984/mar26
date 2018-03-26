@@ -17,6 +17,7 @@ var busboyBodyParser = require('busboy-body-parser');
 
 
 var port = process.env.PORT || 4200; // used to create, sign, and verify tokens
+mongoose.Promise = global.Promise;
 mongoose.connect(config.database); // connect to database
 
 

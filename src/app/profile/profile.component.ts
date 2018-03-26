@@ -26,20 +26,20 @@ private elem: ElementRef
 }
 
   public uploadImage(): void {
-    this.elem.nativeElement.querySelector('#spinner').style.visibility='visible';
+  this.elem.nativeElement.querySelector('#spinner').style.visibility='visible';
   let files = this.elem.nativeElement.querySelector('#selectFile').files;
-let formData = new FormData();
-let file = files[0];
-  formData.append('selectFile', file, file.name);
-  this.fileUploader.uploadImage(formData).subscribe(res=> this.dataLoaded(res.json()));
-
-
+  let formData = new FormData();
+  let file = files[0];
+  formData.append('photo', file);
+  var response = this.fileUploader.uploadImage(formData).subscribe(res=> this.dataLoaded(res.json()));
+  
+  alert("Image Upload Result" + response)
 }
 
 private dataLoaded(data: any): void {
   this.elem.nativeElement.querySelector('#spinner').style.visibility='hidden';
-   // this.imgUploaded = data._body;
-  this.refreshList();
+   //this.imgUploaded = data._body;
+  
 }
 
 private refreshList(): void {
